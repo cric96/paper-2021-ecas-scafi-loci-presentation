@@ -3,7 +3,16 @@
 \usepackage{multicol}
 
 \title{Towards Pulverised Architectures for Collective Adaptive Systems through Multi-tier Programming}
-
+\makeatletter
+\newbox\@backgroundblock
+\newenvironment{backgroundblock}{
+  \global\setbox\@backgroundblock=\vbox\bgroup%
+    \unvbox\@backgroundblock%
+    \vbox to0pt\bgroup\hbox to0pt\bgroup%
+    \ignorespaces
+}{\egroup\egroup\egroup}
+\addtobeamertemplate{background}{\box\@backgroundblock}{}
+\makeatother
 \author[G.Aguzzi]{
   \textbf{Gianluca Aguzzi}\inst{1} \and
   Roberto Casadei\inst{1} \and
@@ -23,7 +32,6 @@
 \useLightTheme
 \usePrimaryTeal
 \useAccentIndigo
-
 \begin{document}
 
 \begin{frameImg}{img/background.jpg}
@@ -43,38 +51,55 @@
 \end{card}
 \end{frameImg}
 
-\begin{frame}{Design problems (partial)}
+\begin{frame}{Challenges}
+%\only<1-4>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{img/network.jpg} \end{backgroundblock} }
+%\only<5-6>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{example-image-a} \end{backgroundblock} }
+
 \begin{card}
-\begin{itemize}
-  \item<1-| alert@1> A
-  \item<2-| alert@2> B
-  \item<3-| alert@3> C
-\end{itemize}
+{ 
+  \setbeamercovered{transparent=10}
+  \begin{itemize}
+  \item<1-| alert@1> Complex and layered network
+  \begin{itemize}
+    \item <2-| alert@2>Large scale
+    \item <3-| alert@3>Heterogenous
+    \item <4-| alert@4>Dynamic
+  \end{itemize}
+  \item<5-| alert@5> Distributed control
+  \item<6-| alert@6> Environmental changes
+  \end{itemize}
+}
+
 \end{card}
 \end{frame}
 
 \section{Proposed approach}
 \begin{frame}{Proposed approach}
-\begin{multicols}{3}
-[
-  \begin{cardTiny}
-  Todos
-  \end{cardTiny}
-]
 
-\centering
-\cardImg{example-image-a}{0.3\textwidth} 
-\pause
-\cardImg{example-image-b}{0.1\textwidth}
-\cardImg{example-image-b}{0.3\textwidth}
+\begin{card}
+{ 
+  \setbeamercovered{transparent=10}
+  \begin{itemize}
+  \item<1-> Describe the collective behaviour via {\color{accent} \textit{Aggregate Computing}}
+  \item<2-> Define you concrete deployment via {\color{accent} \textit{Multi-tier programming}}
+  \item<3-> Inject the {\color{accent} \textit{same}} aggregate behaviour thanks to {\color{accent} \textit{Pulverisation}}
+  \end{itemize}
+}
+\end{card}
+\begin{multicols}{3}
+\only<1-3>{ \cardImg{example-image-a}{0.3\textwidth} }
+\only<2-3>{ \cardImg{example-image-b}{0.3\textwidth} }
+\only<3>{ \cardImg{example-image-c}{0.3\textwidth} }
 \end{multicols}
 \end{frame}
 
 \section{Aggregate Computing}
 \begin{frame}{Aggregate Computing}
-\begin{card}
-{\color{accent} \textit{Short definition} }
-\end{card}
+\begin{cardTiny}
+{\color{accent} A top-down paradigm by wich programmers describe 
+ a collective behaviour in a declarative and functional way,
+ manipulating a distributed data structure called \textit{Computational field} }
+\end{cardTiny}
 \centering
 \cardImg{example-image-b}{0.4\textwidth}
 \end{frame}
@@ -83,30 +108,48 @@
 \begin{frame}{Pulverisation}
 \begin{multicols}{2}
 [
-  \begin{card}
-  {\color{accent} \textit{Short definition} }
-  \end{card}
+  \begin{cardTiny}
+  {\color{accent} An approach proposed for Aggregate Computing to neatly separate behavioural and deployment concerns. }
+  \end{cardTiny}
 ]
 \centering
-\cardImg{example-image-a}{0.3\textwidth} 
 \pause
-\cardImg{example-image-b}{0.3\textwidth}
+\cardImg{img/logical-system.jpg}{0.5\textwidth} 
+\pause
+\cardImg{img/deployments}{0.48\textwidth}
 \end{multicols}
 \end{frame}
 \section{Multi-tier programming}
 
 \begin{frame}{Multi-tier programming}
-
+\begin{cardTiny}
+{\color{accent} A programming apporach by with distributed architectures are defined in a single compilation unit with a single language. }
+\end{cardTiny}
+\centering
+\cardImg{img/multitier}{0.4\textwidth}
 \end{frame}
 
 \section{Framework choosen}
 \begin{frame}{Frameworks}
-\begin{card}[ScaFi]
+\begin{card}[ScaFi (Scala Field)]
 \end{card}
-\centering
+\pause
 \begin{card}[ScalaLoci]
 
 \end{card}
+
+\end{frame}
+
+\section{Puliverised architectures}
+\begin{frame}{Puliverised architectures, logical system}
+
+\end{frame}
+\begin{frame}{Puliverised architectures, concrete examples}
+
+\end{frame}
+
+\section{Benefits}
+\begin{frame}{Benefits}
 
 \end{frame}
 
