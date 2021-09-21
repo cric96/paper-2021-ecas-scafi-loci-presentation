@@ -79,4 +79,15 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
   \end{frame}
 }
 
+\makeatletter
+\newbox\@backgroundblock
+\newenvironment{backgroundblock}{
+  \global\setbox\@backgroundblock=\vbox\bgroup%
+    \unvbox\@backgroundblock%
+    \vbox to0pt\bgroup\hbox to0pt\bgroup%
+    \ignorespaces
+}{\egroup\egroup\egroup}
+\addtobeamertemplate{background}{\box\@backgroundblock}{}
+\makeatother
+
 \mode<all>

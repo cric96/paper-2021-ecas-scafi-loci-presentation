@@ -1,18 +1,10 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{multicol}
+\usepackage{tikz}
 
 \title{Towards Pulverised Architectures for Collective Adaptive Systems through Multi-tier Programming}
-\makeatletter
-\newbox\@backgroundblock
-\newenvironment{backgroundblock}{
-  \global\setbox\@backgroundblock=\vbox\bgroup%
-    \unvbox\@backgroundblock%
-    \vbox to0pt\bgroup\hbox to0pt\bgroup%
-    \ignorespaces
-}{\egroup\egroup\egroup}
-\addtobeamertemplate{background}{\box\@backgroundblock}{}
-\makeatother
+
 \author[G.Aguzzi]{
   \textbf{Gianluca Aguzzi}\inst{1} \and
   Roberto Casadei\inst{1} \and
@@ -28,10 +20,22 @@
 }
 
 \usetheme{material}
-
 \useLightTheme
 \usePrimaryTeal
 \useAccentIndigo
+%% TODO move out
+\newcommand{\presentationGraphics}[3]{
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (B) at (4,0) {
+      \cardImg{#1}{#3\textwidth}
+       
+    };
+    \only<#2>{%
+        \fill [draw=none, fill=white, fill opacity=0.7] (B.north west) -- (B.north east) -- (B.south east) -- (B.south west) -- (B.north west) -- cycle;
+    }
+  \end{tikzpicture}
+}
+
 \begin{document}
 
 \begin{frameImg}{img/background.jpg}
@@ -54,12 +58,14 @@
 \begin{frame}{Challenges}
 %\only<1-4>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{img/network.jpg} \end{backgroundblock} }
 %\only<5-6>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{example-image-a} \end{backgroundblock} }
+\only<1-4>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{img/complex-network.png} \end{backgroundblock} }
+\only<5-6>{ \begin{backgroundblock} \includegraphics[height=\paperheight]{img/swarms.png} \end{backgroundblock} }
 
 \begin{card}
 { 
   \setbeamercovered{transparent=10}
   \begin{itemize}
-  \item<1-| alert@1> Complex and layered network
+  \item<1-| alert@1> Complex and layered networks
   \begin{itemize}
     \item <2-| alert@2>Large scale
     \item <3-| alert@3>Heterogenous
@@ -87,9 +93,9 @@
 }
 \end{card}
 \begin{multicols}{3}
-\only<1-3>{ \cardImg{example-image-a}{0.3\textwidth} }
-\only<2-3>{ \cardImg{example-image-b}{0.3\textwidth} }
-\only<3>{ \cardImg{example-image-c}{0.3\textwidth} }
+\cardImg{example-image-a}{0.3\textwidth}
+\presentationGraphics{example-image-b}{1}{0.3}
+\presentationGraphics{example-image-c}{1-2}{0.3}
 \end{multicols}
 \end{frame}
 
@@ -106,18 +112,24 @@
 
 \section{Pulverisation}
 \begin{frame}{Pulverisation}
-\begin{multicols}{2}
-[
-  \begin{cardTiny}
-  {\color{accent} An approach proposed for Aggregate Computing to neatly separate behavioural and deployment concerns. }
-  \end{cardTiny}
-]
-\centering
-\pause
-\cardImg{img/logical-system.jpg}{0.5\textwidth} 
-\pause
-\cardImg{img/deployments}{0.48\textwidth}
-\end{multicols}
+
+{
+  \setbeamercovered{transparent=10}
+  \begin{multicols}{2}
+    [
+      \begin{cardTiny}
+      {\color{accent} An approach proposed for Aggregate Computing to neatly separate behavioural and deployment concerns. }
+      \end{cardTiny}
+    ]
+    \centering
+    \pause
+    \presentationGraphics{img/logical-system.jpg}{1}{0.5}
+    \pause
+    \presentationGraphics{img/deployments}{1-2}{0.48}
+    
+    \end{multicols}
+}
+
 \end{frame}
 \section{Multi-tier programming}
 
@@ -130,14 +142,18 @@
 \end{frame}
 
 \section{Framework choosen}
-\begin{frame}{Frameworks}
-\begin{card}[ScaFi (Scala Field)]
-\end{card}
-\pause
-\begin{card}[ScalaLoci]
+\begin{frame}{Frameworks}%
 
-\end{card}
-
+{
+  \setbeamercovered{transparent=10}
+  \begin{card}[ScaFi (Scala Field)]
+  A tool-chain composed by a Domain Specific Language that supports field-calculus.
+  \end{card}
+  \pause
+  \begin{card}[ScalaLoci]
+  A langauge extension to enable compile-time multi-tier programming.
+  \end{card}
+}
 \end{frame}
 
 \section{Puliverised architectures}
@@ -147,7 +163,6 @@
 \begin{frame}{Puliverised architectures, concrete examples}
 
 \end{frame}
-
 \section{Benefits}
 \begin{frame}{Benefits}
 
