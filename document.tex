@@ -4,6 +4,7 @@
 \usepackage{tikz}
 \usepackage[backend=bibtex,sorting=none,style=numeric,doi=true]{biblatex} 
 \usepackage{adjustbox}
+\usepackage{minted}
 
 \title{Towards Pulverised Architectures for Collective Adaptive Systems through Multi-tier Programming}
 
@@ -32,7 +33,7 @@
 \bibliography{biblio.bib}
 
 \begin{document}
-
+\setbeamercovered{transparent=10}
 \begin{frameImg}{img/background.jpg}
   \titlepage
 \end{frameImg}
@@ -84,7 +85,7 @@
 
 \begin{cardTiny}
 { 
-  \setbeamercovered{transparent=10}
+  
   \begin{itemize}
     \item<1-> Describe the collective behaviour with {\color{accent} \textit{Aggregate Computing}~\cite{DBLP:journals/jlap/ViroliBDACP19}}
     \item<2-> Define your concrete deployment with {\color{accent} \textit{Multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}}
@@ -171,22 +172,107 @@
   \end{card}
   \pause
   \begin{card}[ScalaLoci~\cite{Weisenburger.2018}]
-    A langauge extension to enable compile-time multi-tier programming.
+    A langauge extension to enable compile-time multi-tier programming.\\
+    The  structure  of  a ScalaLoci application is defined through \textit{peers} and \textit{ties}
   \end{card}
 }
 \end{frame}
 
 \section{Puliverised architectures}
-\begin{frame}{Puliverised architectures: \textbf{logical components}}
-
+\begin{frame}[fragile]{Puliverised architectures: \textbf{logical components}}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \begin{cardTiny}
+        \begin{minted}[fontsize=\footnotesize]{scala}
+@multitier trait LogicalSystem {
+  @peer type LNode <: { type Tie <: Multiple[LNode] }
+}
+@multitier trait PulverisedSystem 
+ extends LogicalSystem {  
+  @peer type SensorComponent        <: LNode 
+  @peer type ActuatorComponent      <: LNode
+  @peer type StateComponent         <: LNode
+  @peer type BehaviourComponent     <: LNode
+  @peer type CommunicationComponent <: LNode
+}
+        \end{minted}
+      \end{cardTiny}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \cardImg{example-image-a}{\textwidth}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}{Puliverised architectures: \textbf{concrete deployments}}
+\begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
+  \begin{columns}
+
+    \begin{column}{0.3\textwidth}
+      \cardImg{example-image-b}{\textwidth}
+    \end{column}
+    \begin{column}{0.7\textwidth}
+      \begin{cardTiny}
+        \begin{minted}[fontsize=\footnotesize]{scala}
+@multitier object IoTSystem extends PulverisedSystem {
+  @peer type Thin <: { type Tie <: Multiple[Thick] }
+  @peer type Thick <: { 
+    type Tie <: Multiple[Thick] with Multiple[Thin]
+  }
+  // Pulverised component allocation on devices
+  @peer type SensorComponent <: Thin
+  @peer type ActuatorComponent <: Thin
+  @peer type StateComponent <: Thick
+  @peer type BehaviourComponent <: Thick
+  @peer type CommunicationComponent <: Thick
+}
+        \end{minted}
+      \end{cardTiny}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \begin{cardTiny}
+        \begin{minted}[fontsize=\footnotesize]{scala}
+@multitier object BrokerBased extends PulverisedSystem {
+  @peer type Node <: { type Tie <: Single[Broker] }
+  @peer type Broker <: { 
+    type Tie <: Multiple[Node] with Multiple[Broker] 
+  }
+  // Pulverised component allocation on devices
+  @peer type SensorComponent <: Node
+  @peer type ActuatorComponent <: Node
+  @peer type StateComponent <: Node
+  @peer type BehaviourComponent <: Node
+  @peer type CommunicationComponent <: Broker
+}
+        \end{minted}
+      \end{cardTiny}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \cardImg{example-image-c}{\textwidth}
+    \end{column}
+
+  \end{columns}
 \end{frame}
 
-\section{Benefits}
-\begin{frame}{Benefits}
+\section{Conclusion}
+\begin{frame}{Conclusion}
+\begin{card}[Benefits]
+\begin{itemize}
+  \item<1-> Collective behaviours are defined regardless of the IT architecture
+  \item<2-> Deployments specification is declarative and type-safe thanks to Scala Loci
+\end{itemize}
+\end{card}
+\pause
+\begin{card}[Future Works]
+\begin{itemize}
+  \item <3-> Opportunistic deployment and reconfiguration of pulverised system
+  \item <4-> Bring this example from a prototype to a usable library
+%  \item <5-> Continue the direction of separate the functional and non-functional aspect of application
+\end{itemize}
+\end{card}
 \end{frame}
-
 
 \begin{frame}[allowframebreaks]
 \frametitle{References}
