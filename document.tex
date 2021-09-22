@@ -6,8 +6,8 @@
 \usepackage{adjustbox}
 \usepackage{minted}
 
+%% Main page
 \title{Towards Pulverised Architectures for Collective Adaptive Systems through Multi-tier Programming}
-
 \author[G.Aguzzi]{
   \textbf{Gianluca Aguzzi}\inst{1} \and
   Roberto Casadei\inst{1} \and
@@ -15,56 +15,53 @@
   Guido Salvaneschi\inst{2} \and
   Mirko Viroli\inst{1}
 }
-
 \institute{
   \inst{1}
   \texttt{Alma Mater Studiorum} -- Università di Bologna, Cesena, Italy \\
   \inst{2}
   University of St.Gallen: St.Gallen, Switzerland
 }
-
-
+%& Theme
 \usetheme{material}
 \useLightTheme
-\usePrimaryTeal
+\usePrimaryBlueGrey
 \useAccentIndigo
-
-%% bib
+%% Bib
 \bibliography{biblio.bib}
-
+%% Start doc
 \begin{document}
 \setbeamercovered{transparent=10}
+% Main page
 \begin{frameImg}{img/background.jpg}
   \titlepage
 \end{frameImg}
-
-%\begin{frame}{Table of contents}
-%\begin{card}
-%\tableofcontents
-%\end{card}
-%\end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Overview}
   \begin{frameImg}{img/background.jpg}
   \begin{card}[Collective Adaptive Systems]
     {
-      \color{accent} Refer to a form of complex systems where 
+      \color{accent} ``Refer to a form of complex systems where 
       a \textit{large number} of \textit{heterogeneous} entities interact without specific \textit{external} or \textit{internal} 
       central control, adapt their behaviour to environmental 
-      settings in pursuit of an \textit{individual} or \textit{collective} goal.}\footnote{\url{http://unige.ch/cui/cas/}
+      settings in pursuit of an \textit{individual} or \textit{collective} goal."}\footnote{\url{http://unige.ch/cui/cas/}
     } 
   \end{card}
 \end{frameImg}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Challenges}
 \begin{frame}{Challenges}
-%\only<1-4>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{img/network.jpg} \end{backgroundblock} }
-%\only<5-6>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{example-image-a} \end{backgroundblock} }
-  \only<1-4>{ \begin{backgroundblock} \includegraphics[width=\paperwidth]{img/complex-network.png} \end{backgroundblock} }
-  \only<5-6>{ \begin{backgroundblock} \includegraphics[height=\paperheight]{img/swarms.png} \end{backgroundblock} }
-
+  %% Background
+  \only<1-4>{ 
+    \begin{backgroundblock} 
+      \includegraphics[width=\paperwidth]{img/complex-network.png} 
+    \end{backgroundblock} 
+  }
+  \only<5-6>{ 
+    \begin{backgroundblock} 
+      \includegraphics[height=\paperheight]{img/swarms.png}
+    \end{backgroundblock} 
+  }
   \begin{card}
-  { 
-    \setbeamercovered{transparent=10}
     \begin{itemize}
       \item<1-| alert@1> Complex and layered networks
       \begin{itemize}
@@ -75,110 +72,97 @@
       \item<5-| alert@5> Distributed control
       \item<6-| alert@6> Environmental changes
     \end{itemize}
-  }
-
   \end{card}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed approach}
 \begin{frame}{Proposed approach}
-
-\begin{cardTiny}
-{ 
-  
-  \begin{itemize}
-    \item<1-> Describe the collective behaviour with {\color{accent} \textit{Aggregate Computing}~\cite{DBLP:journals/jlap/ViroliBDACP19}}
-    \item<2-> Define your concrete deployment with {\color{accent} \textit{Multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}}
-    \item<3-> Inject the {\color{accent} \textit{same}} collective behaviour in different deployments thanks to {\color{accent} \textit{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20}}
-  \end{itemize}
-}
-\end{cardTiny}
-\begin{columns}[onlytextwidth, t]
-  \begin{column}{0.27\textwidth}
-    \begin{adjustbox}{max width=\textwidth, valign=m, margin=0}
-      \cardImg{img/aggregate-computing-file}{\textwidth}
-    \end{adjustbox}
-  \end{column}
-  \begin{column}{0.32\textwidth}
-    \begin{adjustbox}{max width=\textwidth, valign=m}
-      \presentationGraphics{img/scalaloci}{1}{1}
-    \end{adjustbox}
-  \end{column}
-  \begin{column}{0.25\textwidth}
-    \begin{adjustbox}{max width=\textwidth, valign=m}
-      \presentationGraphics{img/finalidea}{1-2}{1}
-    \end{adjustbox}
-  \end{column}
-\end{columns}
-%\presentationGraphics{img/aggregate-computing-file}{1-2}{0.2}
+  %% Main content
+  \begin{cardTiny}
+    \begin{itemize}
+      \item<1-> Describe the collective behaviour with {\color{accent} \textit{Aggregate Computing}~\cite{DBLP:journals/jlap/ViroliBDACP19}}
+      \item<2-> Define your concrete deployment with {\color{accent} \textit{Multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}}
+      \item<3-> Inject the {\color{accent} \textit{same}} collective behaviour in different deployments thanks to {\color{accent} \textit{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20}}
+    \end{itemize}
+  \end{cardTiny}
+  %% Images
+  \begin{columns}[onlytextwidth, t]
+    \begin{column}{0.27\textwidth}
+      \begin{adjustbox}{max width=\textwidth, valign=m, margin=0}
+        \cardImg{img/aggregate-computing-file}{\textwidth}
+      \end{adjustbox}
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \begin{adjustbox}{max width=\textwidth, valign=m}
+        \presentationGraphics{img/scalaloci}{1}{1}
+      \end{adjustbox}
+    \end{column}
+    \begin{column}{0.25\textwidth}
+      \begin{adjustbox}{max width=\textwidth, valign=m}
+        \presentationGraphics{img/finalidea}{1-2}{1}
+      \end{adjustbox}
+    \end{column}
+  \end{columns}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aggregate Computing}
 \begin{frame}{Aggregate Computing~\cite{DBLP:journals/jlap/ViroliBDACP19}}
   \begin{cardTiny}
     {
-      \color{accent} A top-down paradigm by wich programmers describe 
-      a collective behaviour in a declarative and functional way,
+      \color{accent} A top-down paradigm by which programmers describe 
+      collective behaviour in a declarative and functional way,
       manipulating a distributed data structure called \textit{Computational field} 
     }
   \end{cardTiny}
   \centering
   \cardImg{img/aggregate-computing.png}{0.6\textwidth}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pulverisation}
 \begin{frame}{Pulverisation~\cite{DBLP:journals/fi/CasadeiPPVW20}}
-
-{
-  \setbeamercovered{transparent=10}  
-    \begin{cardTiny}
-      {
-        \color{accent} An approach proposed for Aggregate Computing 
-        to neatly separate behavioural and deployment concerns. 
-      }
-    \end{cardTiny}
-    \begin{columns}
-      \begin{column}{0.45\textwidth}
-        \presentationGraphics{img/logical-system.jpg}{1}{1}
-      \end{column}
-      \begin{column}{0.38\textwidth}
-        \presentationGraphics{img/deployments}{1-2}{1}
-      \end{column}
-    \end{columns}
-    \only<3>{} 
-}
+  \begin{cardTiny}
+    {
+      \color{accent} An approach proposed for Aggregate Computing 
+      to neatly separate behavioural and deployment concerns. 
+    }
+  \end{cardTiny}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \presentationGraphics{img/logical-system.jpg}{1}{1}
+    \end{column}
+    \begin{column}{0.38\textwidth}
+      \presentationGraphics{img/deployments}{1-2}{1}
+    \end{column}
+  \end{columns}
+  \only<3>{} 
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Multi-tier programming}
-
 \begin{frame}{Multi-tier programming~\cite{DBLP:journals/csur/WeisenburgerWS20}}
   \begin{cardTiny}
   {
-    \color{accent} A programming apporach by wich distributed architectures 
+    \color{accent} A programming approach by which distributed architectures 
     are defined in a single compilation unit with a single language. 
   }
   \end{cardTiny}
   \centering
   \cardImg{img/multitier}{0.4\textwidth}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Framework choosen}
-\begin{frame}{Frameworks}%
-
-{
-  \setbeamercovered{transparent=10}
+\begin{frame}{Frameworks}
   \begin{card}[ScaFi~\cite{DBLP:conf/isola/CasadeiVAD20} (Scala Field)]
-    A tool-chain composed by a Domain Specific Language that supports field-calculus.
+    A tool-chain comprised by a Domain Specific Language that supports field-calculus.
   \end{card}
   \pause
   \begin{card}[ScalaLoci~\cite{Weisenburger.2018}]
     A langauge extension to enable compile-time multi-tier programming.\\
-    The  structure  of  a ScalaLoci application is defined through \textit{peers} and \textit{ties}
+    %The  structure of  a ScalaLoci application is defined through \textit{peers} and \textit{ties}
   \end{card}
-}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Puliverised architectures}
+%%%%%%%%%%%%%%% EXAMPLE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Puliverised architectures: \textbf{logical components}}
   \begin{columns}
     \begin{column}{0.7\textwidth}
@@ -203,6 +187,7 @@
     \end{column}
   \end{columns}
 \end{frame}
+%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
   \begin{columns}
 
@@ -229,6 +214,7 @@
     \end{column}
   \end{columns}
 \end{frame}
+%%%%%%%%%%%%%%% EXAMPLE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
   \begin{columns}
     \begin{column}{0.7\textwidth}
@@ -252,26 +238,25 @@
     \begin{column}{0.3\textwidth}
       \cardImg{example-image-c}{\textwidth}
     \end{column}
-
   \end{columns}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \begin{frame}{Conclusion}
-\begin{card}[Benefits]
-\begin{itemize}
-  \item<1-> Collective behaviours are defined regardless of the IT architecture
-  \item<2-> Deployments specification is declarative and type-safe thanks to Scala Loci
-\end{itemize}
-\end{card}
-\pause
-\begin{card}[Future Works]
-\begin{itemize}
-  \item <3-> Opportunistic deployment and reconfiguration of pulverised system
-  \item <4-> Bring this example from a prototype to a usable library
-%  \item <5-> Continue the direction of separate the functional and non-functional aspect of application
-\end{itemize}
-\end{card}
+  \begin{card}[Benefits]
+    \begin{itemize}
+      \item<1-> Collective behaviours are defined regardless of the IT architecture
+      \item<2-> Deployments specification is declarative and type-safe thanks to Scala Loci
+    \end{itemize}
+  \end{card}
+  \pause
+  \begin{card}[Future Works]
+    \begin{itemize}
+      \item <3-> Opportunistic deployment and reconfiguration of the pulverised system
+      \item <4-> Bring this example from a prototype to a usable library
+    %  \item <5-> Continue the direction of separate the functional and non-functional aspect of application
+    \end{itemize}
+  \end{card}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
