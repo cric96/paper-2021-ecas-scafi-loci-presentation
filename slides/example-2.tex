@@ -1,0 +1,26 @@
+% ! TeX root = ...
+\begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \begin{cardTiny}
+        \begin{minted}[fontsize=\footnotesize]{scala}
+@multitier object BrokerBased extends PulverisedSystem {
+  @peer type Node <: { type Tie <: Single[Broker] }
+  @peer type Broker <: { 
+    type Tie <: Multiple[Node] with Multiple[Broker] 
+  }
+  // Pulverised component allocation on devices
+  @peer type SensorComponent <: Node
+  @peer type ActuatorComponent <: Node
+  @peer type StateComponent <: Node
+  @peer type BehaviourComponent <: Node
+  @peer type CommunicationComponent <: Broker
+}
+        \end{minted}
+      \end{cardTiny}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \cardImg{example-image-c}{\textwidth}
+    \end{column}
+  \end{columns}
+\end{frame}

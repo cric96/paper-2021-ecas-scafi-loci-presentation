@@ -1,4 +1,4 @@
-document.aux
+*.aux
 document.log
 document.nav
 document.out

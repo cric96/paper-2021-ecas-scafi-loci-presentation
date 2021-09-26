@@ -1,0 +1,27 @@
+% ! TeX root = ...
+\begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
+  \begin{columns}
+
+    \begin{column}{0.3\textwidth}
+      \cardImg{example-image-b}{\textwidth}
+    \end{column}
+    \begin{column}{0.7\textwidth}
+      \begin{cardTiny}
+        \begin{minted}[fontsize=\footnotesize]{scala}
+@multitier object IoTSystem extends PulverisedSystem {
+  @peer type Thin <: { type Tie <: Multiple[Thick] }
+  @peer type Thick <: { 
+    type Tie <: Multiple[Thick] with Multiple[Thin]
+  }
+  // Pulverised component allocation on devices
+  @peer type SensorComponent <: Thin
+  @peer type ActuatorComponent <: Thin
+  @peer type StateComponent <: Thick
+  @peer type BehaviourComponent <: Thick
+  @peer type CommunicationComponent <: Thick
+}
+        \end{minted}
+      \end{cardTiny}
+    \end{column}
+  \end{columns}
+\end{frame}

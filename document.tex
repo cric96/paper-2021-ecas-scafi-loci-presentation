@@ -1,269 +1,39 @@
-\documentclass[aspectratio=169]{beamer}
-\usepackage[utf8]{inputenc}
-\usepackage{multicol}
-\usepackage{tikz}
-\usepackage[backend=bibtex,sorting=none,style=numeric,doi=true]{biblatex} 
-\usepackage{adjustbox}
-\usepackage{minted}
-
-%% Main page
-\title{Towards Pulverised Architectures for Collective Adaptive Systems through Multi-tier Programming}
-\author[G.Aguzzi]{
-  \textbf{Gianluca Aguzzi}\inst{1} \and
-  Roberto Casadei\inst{1} \and
-  Danilo Pianini\inst{1} \\
-  Guido Salvaneschi\inst{2} \and
-  Mirko Viroli\inst{1}
-}
-\institute{
-  \inst{1}
-  \texttt{Alma Mater Studiorum} -- Università di Bologna, Cesena, Italy \\
-  \inst{2}
-  University of St.Gallen: St.Gallen, Switzerland
-}
-%& Theme
-\usetheme{material}
-\useLightTheme
-\usePrimaryBlueGrey
-\useAccentIndigo
-%% Bib
+\documentclass[aspectratio=169, 9pt]{beamer}
+\include{partials/packages.tex}
+\include{partials/title-template.tex}
+\include{partials/theme-configuration.tex}
 \bibliography{biblio.bib}
-%% Start doc
 \begin{document}
-\setbeamercovered{transparent=10}
-% Main page
-\begin{frameImg}{img/background.jpg}
-  \titlepage
-\end{frameImg}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/title.tex}
+
 \section{Overview}
-  \begin{frameImg}{img/background.jpg}
-  \begin{card}[Collective Adaptive Systems]
-    {
-      \color{accent} ``Refer to a form of complex systems where 
-      a \textit{large number} of \textit{heterogeneous} entities interact without specific \textit{external} or \textit{internal} 
-      central control, adapt their behaviour to environmental 
-      settings in pursuit of an \textit{individual} or \textit{collective} goal."}\footnote{\url{http://unige.ch/cui/cas/}
-    } 
-  \end{card}
-\end{frameImg}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/cas.tex}
+
 \section{Challenges}
-\begin{frame}{Challenges}
-  %% Background
-  \only<1-4>{ 
-    \begin{backgroundblock} 
-      \includegraphics[width=\paperwidth]{img/complex-network.png} 
-    \end{backgroundblock} 
-  }
-  \only<5-6>{ 
-    \begin{backgroundblock} 
-      \includegraphics[height=\paperheight]{img/swarms.png}
-    \end{backgroundblock} 
-  }
-  \begin{card}
-    \begin{itemize}
-      \item<1-| alert@1> Complex and layered networks
-      \begin{itemize}
-        \item <2-| alert@2>Large scale
-        \item <3-| alert@3>Heterogenous
-        \item <4-| alert@4>Dynamic
-      \end{itemize}
-      \item<5-| alert@5> Distributed control
-      \item<6-| alert@6> Environmental changes
-    \end{itemize}
-  \end{card}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/challenges.tex}
+
 \section{Proposed approach}
-\begin{frame}{Proposed approach}
-  %% Main content
-  \begin{cardTiny}
-    \begin{itemize}
-      \item<1-> Describe the collective behaviour with {\color{accent} \textit{Aggregate Computing}~\cite{DBLP:journals/jlap/ViroliBDACP19}}
-      \item<2-> Define your concrete deployment with {\color{accent} \textit{Multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}}
-      \item<3-> Inject the {\color{accent} \textit{same}} collective behaviour in different deployments thanks to {\color{accent} \textit{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20}}
-    \end{itemize}
-  \end{cardTiny}
-  %% Images
-  \begin{columns}[onlytextwidth, t]
-    \begin{column}{0.27\textwidth}
-      \begin{adjustbox}{max width=\textwidth, valign=m, margin=0}
-        \cardImg{img/aggregate-computing-file}{\textwidth}
-      \end{adjustbox}
-    \end{column}
-    \begin{column}{0.32\textwidth}
-      \begin{adjustbox}{max width=\textwidth, valign=m}
-        \presentationGraphics{img/scalaloci}{1}{1}
-      \end{adjustbox}
-    \end{column}
-    \begin{column}{0.25\textwidth}
-      \begin{adjustbox}{max width=\textwidth, valign=m}
-        \presentationGraphics{img/finalidea}{1-2}{1}
-      \end{adjustbox}
-    \end{column}
-  \end{columns}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/approach.tex}
+
 \section{Aggregate Computing}
-\begin{frame}{Aggregate Computing~\cite{DBLP:journals/jlap/ViroliBDACP19}}
-  \begin{cardTiny}
-    {
-      \color{accent} A top-down paradigm by which programmers describe 
-      collective behaviour in a declarative and functional way,
-      manipulating a distributed data structure called \textit{Computational field} 
-    }
-  \end{cardTiny}
-  \centering
-  \cardImg{img/aggregate-computing.png}{0.6\textwidth}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/aggregate-computing.tex}
+
 \section{Pulverisation}
-\begin{frame}{Pulverisation~\cite{DBLP:journals/fi/CasadeiPPVW20}}
-  \begin{cardTiny}
-    {
-      \color{accent} An approach proposed for Aggregate Computing 
-      to neatly separate behavioural and deployment concerns. 
-    }
-  \end{cardTiny}
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \presentationGraphics{img/logical-system.jpg}{1}{1}
-    \end{column}
-    \begin{column}{0.38\textwidth}
-      \presentationGraphics{img/deployments}{1-2}{1}
-    \end{column}
-  \end{columns}
-  \only<3>{} 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/pulverisation.tex}
+
 \section{Multi-tier programming}
-\begin{frame}{Multi-tier programming~\cite{DBLP:journals/csur/WeisenburgerWS20}}
-  \begin{cardTiny}
-  {
-    \color{accent} A programming approach by which distributed architectures 
-    are defined in a single compilation unit with a single language. 
-  }
-  \end{cardTiny}
-  \centering
-  \cardImg{img/multitier}{0.4\textwidth}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/multitier.tex}
+
 \section{Framework choosen}
-\begin{frame}{Frameworks}
-  \begin{card}[ScaFi~\cite{DBLP:conf/isola/CasadeiVAD20} (Scala Field)]
-    A tool-chain comprised by a Domain Specific Language that supports field-calculus.
-  \end{card}
-  \pause
-  \begin{card}[ScalaLoci~\cite{Weisenburger.2018}]
-    A langauge extension to enable compile-time multi-tier programming.\\
-    %The  structure of  a ScalaLoci application is defined through \textit{peers} and \textit{ties}
-  \end{card}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides/framework.tex}
+
 \section{Puliverised architectures}
-%%%%%%%%%%%%%%% EXAMPLE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Puliverised architectures: \textbf{logical components}}
-  \begin{columns}
-    \begin{column}{0.7\textwidth}
-      \begin{cardTiny}
-        \begin{minted}[fontsize=\footnotesize]{scala}
-@multitier trait LogicalSystem {
-  @peer type LNode <: { type Tie <: Multiple[LNode] }
-}
-@multitier trait PulverisedSystem 
- extends LogicalSystem {  
-  @peer type SensorComponent        <: LNode 
-  @peer type ActuatorComponent      <: LNode
-  @peer type StateComponent         <: LNode
-  @peer type BehaviourComponent     <: LNode
-  @peer type CommunicationComponent <: LNode
-}
-        \end{minted}
-      \end{cardTiny}
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      \cardImg{example-image-a}{\textwidth}
-    \end{column}
-  \end{columns}
-\end{frame}
-%%%%%%%%%%%%%%% EXAMPLE 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
-  \begin{columns}
+\include{slides/logical.tex}
+\include{slides/example-1.tex}
+\include{slides/example-2.tex}
 
-    \begin{column}{0.3\textwidth}
-      \cardImg{example-image-b}{\textwidth}
-    \end{column}
-    \begin{column}{0.7\textwidth}
-      \begin{cardTiny}
-        \begin{minted}[fontsize=\footnotesize]{scala}
-@multitier object IoTSystem extends PulverisedSystem {
-  @peer type Thin <: { type Tie <: Multiple[Thick] }
-  @peer type Thick <: { 
-    type Tie <: Multiple[Thick] with Multiple[Thin]
-  }
-  // Pulverised component allocation on devices
-  @peer type SensorComponent <: Thin
-  @peer type ActuatorComponent <: Thin
-  @peer type StateComponent <: Thick
-  @peer type BehaviourComponent <: Thick
-  @peer type CommunicationComponent <: Thick
-}
-        \end{minted}
-      \end{cardTiny}
-    \end{column}
-  \end{columns}
-\end{frame}
-%%%%%%%%%%%%%%% EXAMPLE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Puliverised architectures: \textbf{concrete deployments}}
-  \begin{columns}
-    \begin{column}{0.7\textwidth}
-      \begin{cardTiny}
-        \begin{minted}[fontsize=\footnotesize]{scala}
-@multitier object BrokerBased extends PulverisedSystem {
-  @peer type Node <: { type Tie <: Single[Broker] }
-  @peer type Broker <: { 
-    type Tie <: Multiple[Node] with Multiple[Broker] 
-  }
-  // Pulverised component allocation on devices
-  @peer type SensorComponent <: Node
-  @peer type ActuatorComponent <: Node
-  @peer type StateComponent <: Node
-  @peer type BehaviourComponent <: Node
-  @peer type CommunicationComponent <: Broker
-}
-        \end{minted}
-      \end{cardTiny}
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      \cardImg{example-image-c}{\textwidth}
-    \end{column}
-  \end{columns}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
-\begin{frame}{Conclusion}
-  \begin{card}[Benefits]
-    \begin{itemize}
-      \item<1-> Collective behaviours are defined regardless of the IT architecture
-      \item<2-> Deployments specification is declarative and type-safe thanks to Scala Loci
-    \end{itemize}
-  \end{card}
-  \pause
-  \begin{card}[Future Works]
-    \begin{itemize}
-      \item <3-> Opportunistic deployment and reconfiguration of the pulverised system
-      \item <4-> Bring this example from a prototype to a usable library
-    %  \item <5-> Continue the direction of separate the functional and non-functional aspect of application
-    \end{itemize}
-  \end{card}
-\end{frame}
+\include{slides/conclusion.tex}
 
-\begin{frame}[allowframebreaks]
-\frametitle{References}
-%\bibliographystyle{abbrv}
-%\bibliography{biblio} 
-\printbibliography
-\end{frame}
-
+\include{slides/references.tex}
 \end{document}

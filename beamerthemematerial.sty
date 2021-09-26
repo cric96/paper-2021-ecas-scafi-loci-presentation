@@ -14,12 +14,25 @@
 
 % Bib
 \setbeamercolor{bibliography item}{parent=item}
-\setbeamercolor{bibliography entry author}{use=structure,fg=structure.fg}
-\setbeamercolor{bibliography entry title}{use=normal text,fg=normal text.fg}
-\setbeamercolor{bibliography entry location}{use=structure,fg=structure.fg!65!bg}
-\setbeamercolor{bibliography entry note}{use=structure,fg=structure.fg!65!bg}
-\setbeamercolor{bibliography entry doi}{use=structure,fg=structure.fg!65!bg}
-\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography entry note}{fg=accent}  
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\hypersetup{
+    colorlinks,
+    citecolor=accent,
+    filecolor=accent,      
+    urlcolor=accent,
+    linkcolor=accent
+}
+
+% Meta
+\setbeamercovered{transparent=10}
+\setbeamertemplate{itemize item}{\faDotCircle}
+\setbeamercolor{button}{bg=white,fg=accent}
+
+%Icons
+\def\insertgotosymbol{%
+  \faLink
+}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -48,6 +61,17 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
       \begin{tcolorbox}%
     }{%
       \begin{tcolorbox}[colbacktitle=primary, coltitle=textPrimary, title=#1, left=6mm, right=6mm, top=3mm, bottom=4mm, middle=4mm, toptitle=4mm, bottomtitle=3mm,]%
+    }%
+}{%
+  \end{tcolorbox}%
+}
+
+\newenvironment{cardRed}[1][pR23s2OTKY]{%
+  \setCardSettings
+    \ifthenelse{\equal{#1}{pR23s2OTKY}}{%
+      \begin{tcolorbox}%
+    }{%
+      \begin{tcolorbox}[colbacktitle=materialRed, coltitle=textPrimary, title=#1, left=6mm, right=6mm, top=3mm, bottom=4mm, middle=4mm, toptitle=4mm, bottomtitle=3mm,]%
     }%
 }{%
   \end{tcolorbox}%
@@ -111,3 +135,7 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
   \end{tikzpicture}
 }
 \mode<all>
+
+\newcommand{\success}[1]{ { \color{materialGreen} #1} }
+\newcommand{\failure}[1]{ {\color{materialRed} #1} }
+\newcommand{\highlight}[1]{ { \color{accent} #1} }

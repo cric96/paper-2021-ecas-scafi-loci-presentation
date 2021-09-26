@@ -1,0 +1,25 @@
+% ! TeX root = ...
+\begin{frame}[fragile]{Puliverised architectures: \textbf{logical components}}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \begin{cardTiny}
+        \begin{minted}[fontsize=\footnotesize]{scala}
+@multitier trait LogicalSystem {
+  @peer type LNode <: { type Tie <: Multiple[LNode] }
+}
+@multitier trait PulverisedSystem 
+ extends LogicalSystem {  
+  @peer type SensorComponent        <: LNode 
+  @peer type ActuatorComponent      <: LNode
+  @peer type StateComponent         <: LNode
+  @peer type BehaviourComponent     <: LNode
+  @peer type CommunicationComponent <: LNode
+}
+        \end{minted}
+      \end{cardTiny}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \cardImg{example-image-a}{\textwidth}
+    \end{column}
+  \end{columns}
+\end{frame}
