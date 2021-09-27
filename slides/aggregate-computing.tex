@@ -1,29 +1,12 @@
-% ! TeX root = ../document.tex
-\begin{frame}{Proposed approach}
-  %% Main content
+\section{Aggregate Computing}
+\begin{frame}{Aggregate Computing~\cite{DBLP:journals/jlap/ViroliBDACP19}}
   \begin{cardTiny}
-    \begin{itemize}
-      \item<1-> Describe the collective behaviour with \highlight{ \textit{Aggregate Computing}~\cite{DBLP:journals/jlap/ViroliBDACP19}}
-      \item<2-> Define your concrete deployment with \highlight{ \textit{Multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}}
-      \item<3-> Inject the \textit{same} collective behaviour in different deployments thanks to \highlight{ \textit{Pulverisation} }~\cite{DBLP:journals/fi/CasadeiPPVW20}
-    \end{itemize}
+    {
+      \color{accent} A top-down paradigm by which programmers describe 
+      collective behaviour in a declarative and functional way,
+      manipulating a distributed data structure called \textit{Computational field} 
+    }
   \end{cardTiny}
-  %% Images
-  \begin{columns}[onlytextwidth, t]
-    \begin{column}{0.27\textwidth}
-      \begin{adjustbox}{max width=\textwidth, valign=m, margin=0}
-        \cardImg{img/aggregate-computing-file}{\textwidth}
-      \end{adjustbox}
-    \end{column}
-    \begin{column}{0.32\textwidth}
-      \begin{adjustbox}{max width=\textwidth, valign=m}
-        \presentationGraphics{img/scalaloci}{1}{1}
-      \end{adjustbox}
-    \end{column}
-    \begin{column}{0.25\textwidth}
-      \begin{adjustbox}{max width=\textwidth, valign=m}
-        \presentationGraphics{img/finalidea}{1-2}{1}
-      \end{adjustbox}
-    \end{column}
-  \end{columns}
+  \centering
+  \cardImg{img/aggregate-computing.png}{0.6\textwidth}
 \end{frame}
