@@ -21,7 +21,7 @@ jobs:
       - name: Install TeXLive
         uses: DanySK/setup-texlive-action@master
       - name: Compile LaTeX
-        uses: DanySK/compile-latex-action@0.1.1
+        uses: DanySK/compile-latex-action@master
       - name: Autotag
         uses: DanySK/semver-autotag-action@master
       - name: Deploy
