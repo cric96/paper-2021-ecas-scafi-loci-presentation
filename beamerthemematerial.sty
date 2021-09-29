@@ -101,14 +101,18 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
   }%
 }
   
-\newenvironment{frameImg}[2][width]{%
+\newenvironmentx{frameImg}[3][1=width, 3=default]{%
   \setCardSettings
   \ifthenelse{\equal{#1}{width}}{%
     \usebackgroundtemplate{\hspace{-0.5\paperwidth}\parbox[c][\paperheight][c]{2\paperwidth}{\centering\includegraphics[width=\paperwidth, keepaspectratio=true]{#2}}}%
   }{%
     \usebackgroundtemplate{\hspace{-0.5\paperwidth}\parbox[c][\paperheight][c]{2\paperwidth}{\centering\includegraphics[height=\paperheight, keepaspectratio=true]{#2}}}%
   }%
-  \begin{frame}
+  \ifthenelse{\equal{#3}{default}}{%
+    \begin{frame}
+  }{%
+    \begin{frame}[#3]
+  }
 }{%  
   \end{frame}
 }
@@ -137,6 +141,13 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
 }
 \mode<all>
 
+% Text utility
 \newcommand{\success}[1]{ { \color{materialGreen} #1} }
 \newcommand{\failure}[1]{ {\color{materialRed} #1} }
 \newcommand{\highlight}[1]{ { \color{accent} #1} }
+\newcommand{\desc}[1]{
+  \begingroup
+  \fontseries{condensed}\selectfont
+  #1
+  \endgroup
+}
