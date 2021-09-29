@@ -24,5 +24,21 @@
   }%
 }
 
+\defbeamertemplate*{footline}{material}
+{
+  \begin{tcolorbox}[colback=primary, boxrule=-1mm, coltext=textPrimary,%
+    left=6mm, right=6mm, top=0mm, bottom=0mm,%
+    fuzzy shadow={0mm}{ 1.6mm}{0mm}{0.2mm}{shadow!40!primary}, % topSmall
+    fuzzy shadow={0mm}{ 1.5mm}{0mm}{0.2mm}{shadow!20!primary}, % topBig
+    width=\paperwidth, boxsep=2mm]
+        \usebeamerfont{framesubtitle}
+        {
+          \hypersetup{colorlinks,   linkcolor=textPrimary}
+          \makebox[0pt][l]{\,\insertsection}%
+          \hspace*{\fill}\insertshortauthor\hspace*{\fill}
+          \llap{\insertframenumber\,/\,\inserttotalframenumber\,}
+        }
+      \end{tcolorbox}
+}
 
 \mode<all>
