@@ -151,3 +151,26 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
   #1
   \endgroup
 }
+
+\AtEveryCitekey{%
+  \clearfield{volume}%
+  \clearfield{pages}%
+  \clearfield{url}%
+  \clearfield{editors}%
+  \clearfield{issue}%
+  \clearfield{published}%
+  \clearfield{bibsource}%
+  \clearfield{abstract}%
+  \clearfield{organization}%
+  \clearfield{issn}%
+  \clearfield{isbn}%
+  \clearfield{editor}%
+  \clearfield{location}%
+  \clearfield{journaltitle}%
+  \clearfield{doi}%
+  \clearfield{number}%
+  \clearfield{booktitle}%
+  \clearlist{publisher}%
+  \clearfield{series}%
+}
+\renewbibmacro{in:}{}
