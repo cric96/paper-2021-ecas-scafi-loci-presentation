@@ -1,12 +1,22 @@
 \section{Aggregate Computing}
 \begin{frame}{Aggregate Computing~\cite{DBLP:journals/jlap/ViroliBDACP19}}
   \begin{cardTiny}
-    {
-      \color{accent} A top-down paradigm by which programmers describe 
-      collective behaviour in a declarative and functional way,
-      manipulating a distributed data structure called \textit{Computational field} 
-    }
+    \begin{itemize}
+      \item Top-down collective self-organising behaviour specification
+      \item Applied to possible very large scale system
+      \item Interaction protocols implicitly generated
+      \item[\failure{\faThumbsDown}] Peer-to-peer network structure assumption
+    \end{itemize}
+    %\desc{
+    %  A top-down paradigm by which programmers describe 
+    %  collective behaviour in a declarative and functional way,
+    %  manipulating a distributed data structure called \textit{Computational field} 
+    %}
   \end{cardTiny}
   \centering
-  \cardImg{img/aggregate-computing.png}{0.6\textwidth}
+  \begin{multicols}{2}
+    \cardImg{img/aggregate-computing.png}{0.58\textwidth}
+    \raggedleft
+    \cardImg{img/channel.png}{0.40\textwidth}
+  \end{multicols}
 \end{frame}

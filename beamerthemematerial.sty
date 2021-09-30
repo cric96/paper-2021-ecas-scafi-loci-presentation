@@ -61,7 +61,7 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
     \ifthenelse{\equal{#1}{pR23s2OTKY}}{%
       \begin{tcolorbox}%
     }{%
-      \begin{tcolorbox}[colbacktitle=primary, coltitle=textPrimary, title=#1, left=6mm, right=6mm, top=3mm, bottom=4mm, middle=4mm, toptitle=4mm, bottomtitle=3mm,]%
+      \begin{tcolorbox}[colbacktitle=primary, coltitle=textPrimary, title=#1, left=3mm, right=3mm, top=1.5mm, bottom=2mm, middle=2mm, toptitle=2mm, bottomtitle=1.5mm,]%
     }%
 }{%
   \end{tcolorbox}%
@@ -72,7 +72,7 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
     \ifthenelse{\equal{#1}{pR23s2OTKY}}{%
       \begin{tcolorbox}%
     }{%
-      \begin{tcolorbox}[colbacktitle=materialRed, coltitle=textPrimary, title=#1, left=6mm, right=6mm, top=3mm, bottom=4mm, middle=4mm, toptitle=4mm, bottomtitle=3mm,]%
+      \begin{tcolorbox}[colbacktitle=materialRed, coltitle=textPrimary, title=#1, left=3mm, right=3mm, top=1.5mm, bottom=2mm, middle=2mm, toptitle=2mm, bottomtitle=1.5mm,]%
     }%
 }{%
   \end{tcolorbox}%
@@ -142,9 +142,9 @@ segmentation code={\path[draw=BGgrey01](segmentation.west) -- (segmentation.east
 \mode<all>
 
 % Text utility
-\newcommand{\success}[1]{ { \color{materialGreen} #1} }
-\newcommand{\failure}[1]{ {\color{materialRed} #1} }
-\newcommand{\highlight}[1]{ { \color{accent} #1} }
+\newcommand{\success}[1]{ { \color{materialGreen}#1} }
+\newcommand{\failure}[1]{ {\color{materialRed}#1} }
+\newcommand{\highlight}[1]{\desc{{\color{accent}#1}}}
 \newcommand{\desc}[1]{
   \begingroup
   \fontseries{condensed}\selectfont
